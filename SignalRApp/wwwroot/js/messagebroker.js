@@ -1,11 +1,12 @@
 ﻿"use strict";
 
-// Get reference to signalR hub
+// Client reference to signalR hub in order to connect and receive messages
 const signalRConnection = new signalR.HubConnectionBuilder()
     .withUrl("/messagebroker")
     .configureLogging(signalR.LogLevel.Information)
     .build();
 
+// Invoke connect method and log any errors
 signalRConnection.start().then(function () {
     console.log("SignalR Hub Connected!");
 }).catch(function (err) {
@@ -14,7 +15,7 @@ signalRConnection.start().then(function () {
 
 let msgCount = 0;
 
-// Subscribe to method/event
+// Subscribe to onMessageReceived method to show incoming messages from backend
 signalRConnection.on("onMessagedReceived", function (eventMessage) {
     msgCount++;
     const msgCountH4 = document.getElementById("messageCount");

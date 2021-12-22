@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SignalRApp.WorkerServices;
+//using SignalRApp.WorkerServices;
 
 namespace SignalRApp
 {
@@ -25,7 +25,7 @@ namespace SignalRApp
                 hubOptions.EnableDetailedErrors = true;
             });
 
-            // Register worker service
+            // Host signalR Hub in background worker process context- register background service
             services.AddHostedService<MessageBrokerPubSubWorker>();
         }
 
@@ -53,7 +53,8 @@ namespace SignalRApp
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
-                endpoints.MapHub<MessageBrokerHub>("/messagebroker");
+                endpoints.MapHub<MessageBrokerHub>("/messagebroker"); // Hub URL
+
             });
         }
     }

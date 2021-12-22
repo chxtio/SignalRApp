@@ -7,8 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\SignalProcessor\MessageBrokers\Publishers\PublisherCommandMessageServiceBus.cs" />
+    <Compile Remove="Services\SignalProcessor\MessageBrokers\Subscribers\SubscriberServiceBus.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.Owin.Host.SystemWeb" Version="4.2.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.2" />
   </ItemGroup>
 
 </Project>

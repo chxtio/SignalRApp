@@ -5,10 +5,27 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Getting started with SignalR</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <div id="messageCount"></div>
+    <h1 class="display-4">SignalR & Worker Services Part 2</h1>
 </div>
-<div id="messages"></div>
+<div>
+    <label class="checkbox-inline">
+        <input type="checkbox" id="chkRed" name="chkColor" data-lightColor="Red" data-toggle="toggle" data-onstyle="danger" data-offstyle="danger">
+        <span style="padding-right: 40px;">Red</span>
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" id="chkGreen" name="chkColor" data-lightColor="Green" data-toggle="toggle" data-onstyle="success" data-offstyle="success">
+        <span style="padding-right: 40px;">Green</span>
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" id="chkBlue" name="chkColor" data-lightColor="Blue" data-toggle="toggle" data-onstyle="primary" data-offstyle="primary">
+        <span style="padding-right: 40px;">Blue</span>
+    </label>
+</div>
+<h4 id="messageCount">0</h4>
+<ul id="messages" style="overflow: auto; max-height: 600px;">
+</ul>
+
+@section scripts {
 <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
 <script src="~/js/messagebroker.js"></script>
+}
